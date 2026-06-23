@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team</title>
+  <style>/* ============================================================
+   UT Austin Lab Website — Main Stylesheet
+   Colors: Burnt Orange #BF5700 | Charcoal #2B2B2B | Cream #FAF7F4
+   ============================================================ */
+
+:root {
+  --orange:      #BF5700;
+  --orange-dark: #8C3D00;
+  --orange-light:#E8763A;
+  --charcoal:    #2B2B2B;
+  --mid-gray:    #5A5A5A;
+  --light-gray:  #E8E4E0;
+  --cream:       #FAF7F4;
+  --white:       #FFFFFF;
+
+  --font-display: 'Georgia', 'Times New Roman', serif;
+  --font-body:    'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+  --max-width: 1100px;
+  --radius: 6px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background: var(--cream);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+a { color: var(--orange); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; display: block; }
+
+/* ── HEADER / NAV ─────────────────────────────────────────── */
+#site-header {
+  background: var(--charcoal);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.site-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--white);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.site-title span { color: var(--orange-light); }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 4px;
+}
+
+nav a {
+  color: #ccc;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--radius);
+  transition: color 0.15s, background 0.15s;
+}
+nav a:hover, nav a.active {
+  color: var(--white);
+  background: var(--orange);
+  text-decoration: none;
+}
+
+/* Hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #ccc;
+  border-radius: 2px;
+  transition: background 0.15s;
+}
+.nav-toggle:hover span { background: var(--white); }
+
+/* ── PAGE HERO ────────────────────────────────────────────── */
+.page-hero {
+  background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 60%, var(--orange-light) 100%);
+  padding: 64px 24px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.page-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--white);
+  margin-bottom: 12px;
+  position: relative;
+}
+.page-hero p {
+  color: rgba(255,255,255,0.88);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* ── SECTIONS ─────────────────────────────────────────────── */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 56px 24px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: var(--orange);
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.section-lead {
+  color: var(--mid-gray);
+  font-size: 1.05rem;
+  max-width: 700px;
+  margin-bottom: 36px;
+}
+
+/* ── HOME HERO ────────────────────────────────────────────── */
+.home-hero {
+  background: linear-gradient(135deg, var(--orange-dark) 0%, var(--orange) 55%, #D4682A 100%);
+  padding: 88px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.home-hero-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+.home-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--white);
+  line-height: 1.2;
+  max-width: 760px;
+  margin-bottom: 20px;
+}
+.home-hero .sub {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.87);
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.15s, transform 0.1s;
+  cursor: pointer;
+  border: none;
+}
+.btn-white {
+  background: var(--white);
+  color: var(--orange-dark);
+}
+.btn-white:hover {
+  background: var(--cream);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+}
+.btn-orange:hover {
+  background: var(--orange-dark);
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+/* ── NEWS ─────────────────────────────────────────────────── */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 3px solid var(--orange);
+  padding-left: 20px;
+}
+.news-item {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+.news-item:last-child { border-bottom: none; }
+.news-date {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--orange);
+  margin-bottom: 4px;
+}
+.news-text { color: var(--charcoal); font-size: 0.97rem; }
+
+/* ── CARDS ────────────────────────────────────────────────── */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  border-top: 4px solid var(--orange);
+}
+.card-icon { font-size: 2rem; margin-bottom: 12px; }
+.card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--charcoal);
+}
+.card p { font-size: 0.93rem; color: var(--mid-gray); }
+
+/* ── TEAM ─────────────────────────────────────────────────── */
+.group-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid-gray);
+  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 8px;
+  margin: 40px 0 20px;
+}
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+.member-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.member-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 14px;
+  overflow: hidden;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white);
+  font-family: var(--font-display);
+}
+.member-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.member-name {
+  font-weight: 700;
+  font-size: 0.97rem;
+  color: var(--charcoal);
+  margin-bottom: 2px;
+}
+.member-role {
+  font-size: 0.82rem;
+  color: var(--orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.member-bio { font-size: 0.85rem; color: var(--mid-gray); margin-bottom: 14px; }
+.member-links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.member-links a {
+  font-size: 0.75rem;
+  background: var(--light-gray);
+  color: var(--charcoal);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.member-links a:hover {
+  background: var(--orange);
+  color: var(--white);
+  text-decoration: none;
+}
+
+/* ── PUBLICATIONS ─────────────────────────────────────────── */
+.pub-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.filter-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--light-gray);
+  background: var(--white);
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--mid-gray);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: var(--white);
+}
+
+.year-group { margin-bottom: 40px; }
+.year-label {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--orange);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--light-gray);
+}
+
+.pub-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  border-left: 4px solid transparent;
+  transition: border-color 0.15s;
+}
+.pub-item:hover { border-left-color: var(--orange); }
+.pub-title {
+  font-weight: 700;
+  font-size: 0.97rem;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+.pub-authors { font-size: 0.88rem; color: var(--mid-gray); margin-bottom: 4px; }
+.pub-venue {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--orange);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+.pub-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+.pub-tag {
+  font-size: 0.73rem;
+  background: var(--cream);
+  border: 1px solid var(--light-gray);
+  color: var(--mid-gray);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+.pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.pub-links a {
+  font-size: 0.78rem;
+  background: var(--charcoal);
+  color: var(--white);
+  padding: 4px 12px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.pub-links a:hover {
+  background: var(--orange);
+  text-decoration: none;
+}
+
+/* ── CONTACT ──────────────────────────────────────────────── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.contact-info p { margin-bottom: 12px; color: var(--mid-gray); }
+.contact-info strong { color: var(--charcoal); }
+.contact-block {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.contact-block h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  color: var(--charcoal);
+}
+.joining-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.joining-list li {
+  padding-left: 18px;
+  position: relative;
+  font-size: 0.93rem;
+  color: var(--mid-gray);
+}
+.joining-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+#site-footer {
+  background: var(--charcoal);
+  color: #aaa;
+  text-align: center;
+  padding: 28px 24px;
+  font-size: 0.83rem;
+  margin-top: 48px;
+}
+#site-footer a { color: var(--orange-light); }
+
+/* ── DIVIDER ──────────────────────────────────────────────── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--light-gray);
+  margin: 0;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+  nav { display: none; width: 100%; }
+  nav.open {
+    display: block;
+    position: absolute;
+    top: 64px;
+    left: 0; right: 0;
+    background: var(--charcoal);
+    padding: 12px 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  nav ul { flex-direction: column; gap: 2px; }
+  nav a { display: block; }
+  .header-inner { flex-wrap: wrap; position: relative; }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+  <header id="site-header"></header>
+  
+<div class="page-hero"><h1>Our Team</h1><p>Meet the researchers building the future of the lab.</p></div>
+<div style="background:#fff;">
+  <div class="section" id="team-section"></div>
+</div>
+
+  <footer id="site-footer"></footer>
+  <script>
+/**
+ * ============================================================
+ *  LAB WEBSITE CONFIG — Edit everything here!
+ *  Changes here will reflect across the whole site.
+ * ============================================================
+ */
+
+const LAB_CONFIG = {
+
+  // --- Lab Identity ---
+  labName: "Computational Research Lab",
+  labShortName: "CRL",
+  department: "Department of Computer Science",
+  university: "The University of Texas at Austin",
+  tagline: "Advancing knowledge at the intersection of theory and application.",
+  email: "lab@cs.utexas.edu",
+  address: "Gates Dell Complex (GDC), Austin, TX 78712",
+  twitterHandle: "@UTAustinCRL",   // or "" to hide
+  githubOrg: "github.com/utcrl",   // or "" to hide
+  googleScholar: "",               // paste full URL or "" to hide
+
+  // --- Navigation Pages (set visible: false to hide a page) ---
+  navLinks: [
+    { label: "Home",         href: "index.html",        visible: true },
+    { label: "Research",     href: "research.html",     visible: true },
+    { label: "Team",         href: "team.html",         visible: true },
+    { label: "Publications", href: "publications.html", visible: true },
+    { label: "Contact",      href: "contact.html",      visible: true },
+  ],
+
+  // --- Home Page Hero ---
+  hero: {
+    headline: "Pushing the Frontiers of Computational Science",
+    subtext:  "We develop novel algorithms, systems, and theories that bridge fundamental research and real-world impact.",
+    ctaLabel:  "Explore Our Research",
+    ctaHref:   "research.html",
+  },
+
+  // --- Home Page News/Announcements (newest first) ---
+  news: [
+    { date: "June 2026",     text: "Our paper on distributed optimization was accepted to NeurIPS 2026." },
+    { date: "May 2026",      text: "Dr. Jane Smith receives the NSF CAREER Award." },
+    { date: "March 2026",    text: "We welcome three new PhD students to the lab!" },
+  ],
+
+  // --- Research Areas ---
+  researchAreas: [
+    {
+      title: "Machine Learning Theory",
+      description: "We study the theoretical foundations of learning algorithms, with a focus on generalization, robustness, and sample complexity.",
+      icon: "🧠",
+    },
+    {
+      title: "Distributed Systems",
+      description: "Designing scalable, fault-tolerant systems for large-scale data processing and scientific computing.",
+      icon: "🔗",
+    },
+    {
+      title: "Human-Computer Interaction",
+      description: "Building interfaces that make complex computational tools accessible to domain scientists and practitioners.",
+      icon: "🖥️",
+    },
+  ],
+
+  // --- Team Members ---
+  team: [
+    {
+      name:     "Dr. Jane Smith",
+      role:     "Principal Investigator",
+      bio:      "Jane received her PhD from MIT and joined UT Austin in 2018. Her research focuses on ML theory and optimization.",
+      photo:    "",            // path to photo, e.g. "images/jane.jpg", or "" for initials avatar
+      website:  "",
+      scholar:  "",
+      github:   "",
+      group:    "Faculty",     // used to group members: Faculty | PhD Students | MS Students | Alumni
+    },
+    {
+      name:     "Alex Johnson",
+      role:     "PhD Student",
+      bio:      "Alex is a 3rd-year PhD student working on distributed optimization algorithms.",
+      photo:    "",
+      website:  "",
+      scholar:  "",
+      github:   "",
+      group:    "PhD Students",
+    },
+    {
+      name:     "Maria Garcia",
+      role:     "PhD Student",
+      bio:      "Maria's research sits at the intersection of HCI and ML, building tools for scientific discovery.",
+      photo:    "",
+      website:  "",
+      scholar:  "",
+      github:   "",
+      group:    "PhD Students",
+    },
+    {
+      name:     "Chris Lee",
+      role:     "MS Student",
+      bio:      "Chris is working on his thesis on efficient neural architecture search.",
+      photo:    "",
+      website:  "",
+      scholar:  "",
+      github:   "",
+      group:    "MS Students",
+    },
+  ],
+
+  // --- Publications (newest first) ---
+  publications: [
+    {
+      title:   "Convergence Rates for Stochastic Gradient Methods under Heavy-Tail Noise",
+      authors: "Smith, J., Johnson, A., Garcia, M.",
+      venue:   "NeurIPS 2026",
+      year:    2026,
+      tags:    ["ML Theory"],
+      pdf:     "",    // URL to PDF
+      code:    "",    // URL to code repo
+      doi:     "",    // DOI URL
+    },
+    {
+      title:   "FaultShield: Transparent Fault Tolerance for Distributed ML Training",
+      authors: "Johnson, A., Smith, J.",
+      venue:   "OSDI 2025",
+      year:    2025,
+      tags:    ["Distributed Systems"],
+      pdf:     "",
+      code:    "",
+      doi:     "",
+    },
+    {
+      title:   "SciLens: An Interactive Environment for Exploratory Data Analysis",
+      authors: "Garcia, M., Lee, C., Smith, J.",
+      venue:   "CHI 2025",
+      year:    2025,
+      tags:    ["HCI"],
+      pdf:     "",
+      code:    "",
+      doi:     "",
+    },
+  ],
+
+};
+
+
+(function () {
+  const cfg = LAB_CONFIG;
+  const currentPage = location.pathname.split('/').pop() || 'index.html';
+  const navItems = cfg.navLinks
+    .filter(l => l.visible)
+    .map(l => {
+      const active = (l.href === currentPage || (currentPage === '' && l.href === 'index.html')) ? ' class="active"' : '';
+      return `<li><a href="${l.href}"${active}>${l.label}</a></li>`;
+    }).join('');
+  const header = document.getElementById('site-header');
+  if (header) {
+    header.innerHTML = `
+      <div class="header-inner">
+        <a class="site-title" href="index.html">
+          <span>${cfg.labShortName}</span> — UT Austin
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="this.parentElement.parentElement.querySelector('nav').classList.toggle('open')">
+          <span></span><span></span><span></span>
+        </button>
+        <nav id="site-nav"><ul>${navItems}</ul></nav>
+      </div>
+    `;
+  }
+  const footer = document.getElementById('site-footer');
+  if (footer) {
+    const socials = [
+      cfg.twitterHandle ? `<a href="https://twitter.com/${cfg.twitterHandle.replace('@','')}" target="_blank">${cfg.twitterHandle}</a>` : null,
+      cfg.githubOrg     ? `<a href="https://${cfg.githubOrg}" target="_blank">GitHub</a>` : null,
+      cfg.googleScholar ? `<a href="${cfg.googleScholar}" target="_blank">Google Scholar</a>` : null,
+    ].filter(Boolean).join(' · ');
+    footer.innerHTML = `
+      <p>${cfg.labName} · ${cfg.department} · ${cfg.university}</p>
+      <p style="margin-top:6px">${cfg.address} · <a href="mailto:${cfg.email}">${cfg.email}</a></p>
+      ${socials ? `<p style="margin-top:8px">${socials}</p>` : ''}
+      <p style="margin-top:10px; color:#666">© ${new Date().getFullYear()} ${cfg.labName}. Built with GitHub Pages.</p>
+    `;
+  }
+})();
+
+
+const c = LAB_CONFIG;
+document.title = 'Team — ' + c.labName;
+const groups = {};
+const order = ['Faculty','PhD Students','MS Students','Undergraduate','Alumni'];
+c.team.forEach(m => { if(!groups[m.group]) groups[m.group]=[]; groups[m.group].push(m); });
+const section = document.getElementById('team-section');
+const groupOrder = [...order, ...Object.keys(groups).filter(g=>!order.includes(g))];
+groupOrder.forEach(grp => {
+  if(!groups[grp]) return;
+  section.innerHTML += `<div class="group-label">${grp}</div><div class="team-grid" id="grp-${grp.replace(/\s/g,'_')}"></div>`;
+});
+c.team.forEach(m => {
+  const grid = document.getElementById('grp-'+m.group.replace(/\s/g,'_'));
+  if(!grid) return;
+  const initials = m.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  const avatar = m.photo ? `<img src="${m.photo}" alt="${m.name}"/>` : initials;
+  const links = [
+    m.website ? `<a href="${m.website}" target="_blank">Website</a>` : null,
+    m.scholar  ? `<a href="${m.scholar}"  target="_blank">Scholar</a>` : null,
+    m.github   ? `<a href="https://github.com/${m.github}" target="_blank">GitHub</a>` : null,
+  ].filter(Boolean).join('');
+  grid.innerHTML += `<div class="member-card"><div class="member-avatar">${avatar}</div><div class="member-name">${m.name}</div><div class="member-role">${m.role}</div><p class="member-bio">${m.bio}</p>${links?`<div class="member-links">${links}</div>`:''}</div>`;
+});
+
+  </script>
+</body>
+</html>
