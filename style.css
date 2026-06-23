@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — Lab Website</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/config.js"></script>
+</head>
+<body>
+
+  <header id="site-header"></header>
+
+  <!-- Hero — text filled from config.js -->
+  <section class="home-hero" id="home-hero">
+    <div class="home-hero-inner">
+      <h1 id="hero-headline"></h1>
+      <p class="sub" id="hero-sub"></p>
+      <a id="hero-cta" class="btn btn-white" href="#">Explore Our Research</a>
+    </div>
+  </section>
+
+  <!-- About strip -->
+  <div style="background:#fff; border-bottom:1px solid #E8E4E0;">
+    <div class="section" style="padding-top:36px; padding-bottom:36px; display:flex; gap:32px; align-items:center; flex-wrap:wrap;">
+      <div style="flex:2; min-width:260px;">
+        <h2 class="section-title">Our Mission</h2>
+        <p class="section-lead" id="about-tagline"></p>
+        <!-- ✏️ EDIT: Add a longer mission statement below -->
+        <p style="color:#5A5A5A; font-size:0.95rem;">
+          We are a research group at the <strong id="about-university"></strong> dedicated to fundamental and applied research.
+          We collaborate across disciplines, publish openly, and mentor the next generation of researchers.
+        </p>
+      </div>
+      <div style="flex:1; min-width:180px;">
+        <div style="background:#FAF7F4; border-radius:8px; padding:24px; text-align:center;">
+          <div style="font-size:2rem; font-weight:800; color:#BF5700;" id="stat-pubs">—</div>
+          <div style="font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#5A5A5A;">Publications</div>
+          <div style="font-size:2rem; font-weight:800; color:#BF5700; margin-top:12px;" id="stat-members">—</div>
+          <div style="font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#5A5A5A;">Team Members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- News -->
+  <div style="background:#FAF7F4;">
+    <div class="section">
+      <h2 class="section-title">News &amp; Announcements</h2>
+      <div class="news-list" id="news-list"></div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- Research highlights -->
+  <div style="background:#fff;">
+    <div class="section">
+      <h2 class="section-title">Research Areas</h2>
+      <p class="section-lead">We work across several interconnected areas. See our <a href="research.html">research page</a> for details.</p>
+      <div class="card-grid" id="research-cards"></div>
+    </div>
+  </div>
+
+  <footer id="site-footer"></footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    // Populate home page from config
+    const c = LAB_CONFIG;
+    document.title = `Home — ${c.labName}`;
+    document.getElementById('hero-headline').textContent = c.hero.headline;
+    document.getElementById('hero-sub').textContent = c.hero.subtext;
+    const cta = document.getElementById('hero-cta');
+    cta.textContent = c.hero.ctaLabel;
+    cta.href = c.hero.ctaHref;
+
+    document.getElementById('about-tagline').textContent = c.tagline;
+    document.getElementById('about-university').textContent = c.university;
+    document.getElementById('stat-pubs').textContent = c.publications.length + '+';
+    document.getElementById('stat-members').textContent = c.team.filter(m => m.group !== 'Alumni').length + '+';
+
+    // News
+    const newsList = document.getElementById('news-list');
+    c.news.forEach(n => {
+      newsList.innerHTML += `
+        <div class="news-item">
+          <div class="news-date">${n.date}</div>
+          <div class="news-text">${n.text}</div>
+        </div>`;
+    });
+
+    // Research cards
+    const resCards = document.getElementById('research-cards');
+    c.researchAreas.forEach(r => {
+      resCards.innerHTML += `
+        <div class="card">
+          <div class="card-icon">${r.icon}</div>
+          <h3>${r.title}</h3>
+          <p>${r.description}</p>
+        </div>`;
+    });
+  </script>
+</body>
+</html>
