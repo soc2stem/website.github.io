@@ -99,40 +99,72 @@ nav a:hover, nav a.active { color: var(--white); background: var(--orange); text
   
 <div style="background:linear-gradient(135deg,#8C3D00,#BF5700,#E8763A);padding:88px 24px 80px;">
   <div style="max-width:1100px;margin:0 auto;">
-    <h1 style="font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.2;max-width:760px;margin-bottom:16px;">College-to-Career Team</h1>
-    <p style="font-size:1.1rem;color:rgba(255,255,255,0.87);max-width:580px;">Add your lab tagline or mission statement here.</p>
-  </div>
-</div>
-<div style="background:#fff;">
-  <div class="section">
-    <h2 class="section-title">Our Mission</h2>
-    <p class="section-lead">Add your mission statement here.</p>
+    <h1 style="font-family:Georgia,serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.2;max-width:760px;margin-bottom:16px;">
+      College-to-Career Team
+    </h1>
+    <p style="font-size:1.1rem;color:rgba(255,255,255,0.87);max-width:700px;">
+      Researching educational pathways, career development, and tools that help students connect college experiences to future careers.
+    </p>
   </div>
 </div>
 
-  <footer id="site-footer"></footer>
-  <script>
-(function() {
-  const pages = [
-    { label: 'Home',         href: 'index.html' },
-    { label: 'Research',     href: 'research.html' },
-    { label: 'Team',         href: 'team.html' },
-    { label: 'Publications', href: 'publications.html' },
-    { label: 'Contact',      href: 'contact.html' },
-  ];
-  const current = location.pathname.split('/').pop() || 'index.html';
-  const nav = pages.map(p => {
-    const active = p.href === current || (current === '' && p.href === 'index.html') ? ' class="active"' : '';
-    return `<li><a href="${p.href}"${active}>${p.label}</a></li>`;
-  }).join('');
-  document.getElementById('site-header').innerHTML = `
-    <div class="header-inner">
-      <a class="site-title" href="index.html">College-to-Career Team</a>
-      <button class="nav-toggle" onclick="document.getElementById('site-nav').classList.toggle('open')">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="site-nav"><ul>${nav}</ul></nav>
-    </div>`;
+<div style="background:#fff;">
+  <div class="section">
+    <h2 class="section-title">Our Mission</h2>
+
+    <p class="section-lead" style="max-width:100%;">
+      The College-to-Career Team studies how educational experiences shape students' career opportunities and long-term outcomes. Our work combines educational research, data analysis, and student-centered innovation to better understand career pathways while developing resources that help students navigate the transition from college to career.
+    </p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Research Objectives</h3>
+        <p>
+          Our research examines how K-12 preparation, college experiences, and demographic factors influence educational attainment, STEM participation, and career outcomes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>College-to-Career Tool</h3>
+        <p>
+          We developed and evaluate an online tool designed to help sociology students explore career pathways, identify transferable skills, connect coursework to careers, and access professional development resources.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Student Impact</h3>
+        <p>
+          Early implementation suggests the tool helps students better articulate their skills, understand career resources, and connect their academic experiences to future opportunities.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="section-title" style="margin-top:60px;">What the Tool Offers</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Career Exploration</h3>
+        <p>
+          Explore career pathways, identify strengths, and learn how sociology skills apply across industries and professions.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Professional Development</h3>
+        <p>
+          Access guidance on resumes, cover letters, networking, job search strategies, career fairs, and professional growth.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Future Planning</h3>
+        <p>
+          Learn about research opportunities, community engagement, graduate school pathways, and long-term career planning.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
   document.getElementById('site-footer').innerHTML =
     '<p>College-to-Career Team &copy; ' + new Date().getFullYear() + '</p>';
 })();
