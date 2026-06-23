@@ -83,6 +83,45 @@ nav a:hover, nav a.active { color: var(--white); background: var(--orange); text
 .btn-white { background: var(--white); color: var(--orange-dark); }
 .btn-white:hover { background: var(--cream); text-decoration: none; transform: translateY(-1px); }
 
+    .people-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.person-row {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.person-photo {
+  width: 180px;
+  height: 180px;
+  background: #E5E5E5;
+  border: 2px solid #D0D0D0;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.person-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+  color: var(--charcoal);
+}
+
+.person-role {
+  color: var(--orange);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.person-info p {
+  color: var(--mid-gray);
+  font-size: 1rem;
+}
+
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
   nav { display: none; width: 100%; }
@@ -105,61 +144,102 @@ nav a:hover, nav a.active { color: var(--white); background: var(--orange); text
   <div class="section">
 
     <div class="group-label">Faculty</div>
-<div class="team-card">
-    <div class="avatar">JC</div>
+<div class="people-list">
+
+  <h2 class="section-title">Principal Investigator</h2>
+<div class="person-row">
+
+  <img src="images/placeholder.jpg"
+       alt="Jordan Conwell"
+       class="person-photo">
+
+  <div class="person-info">
     <h3>Jordan Conwell</h3>
-    <div class="role">Principal Investigator</div>
-    <p>Associate Professor, Department of Sociology, The University of Texas at Austin.</p>
+    <p class="person-role">Principal Investigator</p>
+    <p>
+      Associate Professor, Department of Sociology,
+      The University of Texas at Austin.
+    </p>
+  </div>
+
 </div>
 
-    <h2 class="team-section-title">Postdoctoral Researcher</h2>
+  <h2 class="section-title">Postdoctoral Researcher</h2>
 
-<div class="team-grid">
-    <div class="team-card">
-        <div class="avatar">JF</div>
-        <h3>Jane Furey</h3>
-        <div class="role">Postdoctoral Researcher</div>
-    </div>
+<div class="person-row">
+
+  <img src="images/placeholder.jpg"
+       alt="Jane Furey"
+       class="person-photo">
+
+  <div class="person-info">
+    <h3>Jane Furey</h3>
+    <p class="person-role">Postdoctoral Researcher</p>
+  </div>
+
 </div>
 
-<h2 class="team-section-title">PhD Students</h2>
+  <h2 class="section-title">PhD Students</h2>
 
-<div class="team-grid">
-    <div class="team-card">
-        <div class="avatar">CR</div>
-        <h3>Cameron Rua-Smith</h3>
-        <div class="role">PhD Student</div>
-    </div>
+<div class="person-row">
+
+  <img src="images/placeholder.jpg"
+       alt="Cameron Rua-Smith"
+       class="person-photo">
+
+  <div class="person-info">
+    <h3>Cameron Rua-Smith</h3>
+    <p class="person-role">PhD Student</p>
+  </div>
+
 </div>
 
-<h2 class="team-section-title">Undergraduate Researchers</h2>
+  <h2 class="section-title">Undergraduate Researchers</h2>
 
-<div class="team-grid">
+<h2 class="section-title">Undergraduate Researchers</h2>
 
-    <div class="team-card">
-        <div class="avatar">CM</div>
-        <h3>Carly May</h3>
-        <div class="role">Undergraduate Research Assistant</div>
-    </div>
+<div class="person-row">
+  <img src="images/placeholder.jpg"
+       alt="Carly May"
+       class="person-photo">
 
-    <div class="team-card">
-        <div class="avatar">KD</div>
-        <h3>Katy Doncer</h3>
-        <div class="role">Undergraduate Research Assistant</div>
-    </div>
+  <div class="person-info">
+    <h3>Carly May</h3>
+    <p class="person-role">Undergraduate Research Assistant</p>
+  </div>
+</div>
 
-    <div class="team-card">
-        <div class="avatar">MD</div>
-        <h3>Michael Dinh</h3>
-        <div class="role">Undergraduate Research Assistant</div>
-    </div>
+<div class="person-row">
+  <img src="images/placeholder.jpg"
+       alt="Katy Doncer"
+       class="person-photo">
 
-    <div class="team-card">
-        <div class="avatar">GL</div>
-        <h3>Grant Andrew Lindberg</h3>
-        <div class="role">Undergraduate Research Assistant</div>
-    </div>
+  <div class="person-info">
+    <h3>Katy Doncer</h3>
+    <p class="person-role">Undergraduate Research Assistant</p>
+  </div>
+</div>
 
+<div class="person-row">
+  <img src="images/placeholder.jpg"
+       alt="Michael Dinh"
+       class="person-photo">
+
+  <div class="person-info">
+    <h3>Michael Dinh</h3>
+    <p class="person-role">Undergraduate Research Assistant</p>
+  </div>
+</div>
+
+<div class="person-row">
+  <img src="images/placeholder.jpg"
+       alt="Grant Andrew Lindberg"
+       class="person-photo">
+
+  <div class="person-info">
+    <h3>Grant Andrew Lindberg</h3>
+    <p class="person-role">Undergraduate Research Assistant</p>
+  </div>
 </div>
 
     <div class="group-label">Alumni</div>
