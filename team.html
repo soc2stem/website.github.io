@@ -28,8 +28,6 @@
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
-
 body {
   font-family: var(--font-body);
   color: var(--charcoal);
@@ -76,8 +74,6 @@ img {
   white-space: nowrap;
   text-decoration: none;
 }
-
-.site-title:hover { text-decoration: none; }
 
 nav ul {
   list-style: none;
@@ -182,20 +178,30 @@ nav a.active {
 
 .person-row {
   display: flex;
-  gap: 28px;
   align-items: flex-start;
-  margin-bottom: 24px;
+  gap: 36px;
+  margin-bottom: 48px;
 }
 
 .person-photo {
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 280px;
+  min-width: 280px;
+  min-height: 280px;
   object-fit: cover;
   object-position: center;
   border-radius: 8px;
   border: 3px solid #E8E4E0;
-  flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,.12);
+}
+
+.carly-photo {
+  object-position: center 20%;
+}
+
+.person-info {
+  flex: 1;
+  max-width: 720px;
 }
 
 .person-info h3 {
@@ -257,12 +263,15 @@ nav a.active {
 
   .person-row {
     flex-direction: column;
+    gap: 18px;
   }
 
   .person-photo {
     width: 100%;
     height: auto;
-    max-width: 220px;
+    min-width: 0;
+    min-height: 0;
+    max-width: 320px;
   }
 }
   </style>
@@ -287,14 +296,10 @@ nav a.active {
 
         <div class="person-row">
           <img src="images/placeholder.jpg" alt="Jordan Conwell" class="person-photo">
-
           <div class="person-info">
             <h3>Jordan Conwell</h3>
             <p class="person-role">Principal Investigator</p>
-            <p>
-              Associate Professor, Department of Sociology,
-              The University of Texas at Austin.
-            </p>
+            <p>Associate Professor, Department of Sociology, The University of Texas at Austin.</p>
           </div>
         </div>
 
@@ -302,7 +307,6 @@ nav a.active {
 
         <div class="person-row">
           <img src="images/placeholder.jpg" alt="Jane Furey" class="person-photo">
-
           <div class="person-info">
             <h3>Jane Furey</h3>
             <p class="person-role">Postdoctoral Researcher</p>
@@ -313,7 +317,6 @@ nav a.active {
 
         <div class="person-row">
           <img src="images/placeholder.jpg" alt="Cameron Rua-Smith" class="person-photo">
-
           <div class="person-info">
             <h3>Cameron Rua-Smith</h3>
             <p class="person-role">PhD Student</p>
@@ -322,57 +325,38 @@ nav a.active {
 
         <h2 class="section-title">Undergraduate Researchers</h2>
 
-<div class="person-row">
+        <div class="person-row">
+          <img src="images/carly-may.png" alt="Carly May" class="person-photo carly-photo">
+          <div class="person-info">
+            <h3>Carly May</h3>
+            <p class="person-role">Undergraduate Research Assistant</p>
+            <p>
+              Carly recently graduated from The University of Texas at Austin with a Bachelor's degree in Sociology and a minor in Educational Psychology. Entering her third year on the College-to-Career research team, she now serves as the Undergraduate Team Lead. After beginning college in 2014 and returning in 2024 to pursue sociology, she brings a renewed commitment to advancing equity in education and strengthening family support systems. This fall, she will begin a Master's program in Human Development, Culture, and Learning Sciences. Her research interests focus on education policy, parent involvement, and reducing systemic inequalities in access to educational resources.
+            </p>
+          </div>
+        </div>
 
-  <img src="images/carly-may.png"
-       alt="Carly May"
-       class="person-photo">
-
-  <div class="person-info">
-    <h3>Carly May</h3>
-    <p class="person-role">Undergraduate Research Assistant</p>
-
-    <p>
-     <p>
-  Carly recently graduated from The University of Texas at Austin with a Bachelor's degree in Sociology and a minor in Educational Psychology. Entering her third year on the College-to-Career research team, she now serves as the Undergraduate Team Lead. After beginning college in 2014 and returning in 2024 to pursue sociology, she brings a renewed commitment to advancing equity in education and strengthening family support systems. This fall, she will begin a Master's program in Human Development, Culture, and Learning Sciences. Her research interests focus on education policy, parent involvement, and reducing systemic inequalities in access to educational resources.
-</p> 
-    </p>
-
-  </div>
-
-</div>
         <div class="person-row">
           <img src="images/placeholder.jpg" alt="Katy Doncer" class="person-photo">
-
           <div class="person-info">
             <h3>Katy Doncer</h3>
             <p class="person-role">Undergraduate Research Assistant</p>
           </div>
         </div>
 
-<div class="person-row">
-
-  <img src="images/michael-dinh.jpg"
-       alt="Michael Dinh"
-       class="person-photo">
-
-  <div class="person-info">
-    <h3>Michael Dinh</h3>
-    <p class="person-role">Undergraduate Research Assistant</p>
-
-    <p>
-<p>
-  Michael Dinh is a senior at The University of Texas at Austin pursuing a Bachelor of Science in Psychology and is expected to graduate in Fall 2026. As an undergraduate researcher with the College-to-Career Team, his work focuses on survey development, website design, data analysis, and creating resources that support students' career readiness. After graduation, he is hoping to attend dental school, where he aims to combine his interests in healthcare, education, and community service to improve access to oral healthcare while continuing his commitment to mentorship and community outreach.
-</p>
-    </p>
-
-  </div>
-
-</div>
+        <div class="person-row">
+          <img src="images/michael-dinh.jpg" alt="Michael Dinh" class="person-photo">
+          <div class="person-info">
+            <h3>Michael Dinh</h3>
+            <p class="person-role">Undergraduate Research Assistant</p>
+            <p>
+              Michael Dinh is a senior at The University of Texas at Austin pursuing a Bachelor of Science in Psychology and is expected to graduate in Fall 2026. As an undergraduate researcher with the College-to-Career Team, his work focuses on survey development, website design, data analysis, and creating resources that support students' career readiness. After graduation, he is hoping to attend dental school, where he aims to combine his interests in healthcare, education, and community service to improve access to oral healthcare while continuing his commitment to mentorship and community outreach.
+            </p>
+          </div>
+        </div>
 
         <div class="person-row">
           <img src="images/placeholder.jpg" alt="Grant Andrew Lindberg" class="person-photo">
-
           <div class="person-info">
             <h3>Grant Andrew Lindberg</h3>
             <p class="person-role">Undergraduate Research Assistant</p>
