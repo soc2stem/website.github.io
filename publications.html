@@ -32,6 +32,10 @@ body {
   background: var(--cream);
   line-height: 1.7;
   font-size: 16px;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a { color: var(--orange); text-decoration: none; }
@@ -171,7 +175,7 @@ nav a.active {
   text-align: center;
   padding: 28px 24px;
   font-size: 0.83rem;
-  margin-top: 48px;
+  margin-top: auto;
 }
 
 @media (max-width: 768px) {
@@ -207,6 +211,7 @@ nav a.active {
 
 <body>
   <header id="site-header"></header>
+  <main style="flex:1;">
 
   <div class="page-hero">
     <h1>Publications</h1>
@@ -236,7 +241,7 @@ nav a.active {
 
     </div>
   </div>
-
+</main>
   <footer id="site-footer"></footer>
 
   <script>
