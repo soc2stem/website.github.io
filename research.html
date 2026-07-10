@@ -212,6 +212,12 @@ nav a.active {
   width: 100%;
   height: auto;
   border-radius: var(--radius);
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.gallery-container img.fade {
+  opacity: 0;
 }
 
 .gallery-btn {
@@ -446,17 +452,30 @@ const galleryImages = [
 let currentImage = 0;
 
 function changeSlide(direction) {
-  currentImage += direction;
+  const image = document.getElementById("galleryImage");
 
-  if (currentImage < 0) {
-    currentImage = galleryImages.length - 1;
-  }
+  // Start fade out
+  image.classList.add("fade");
 
-  if (currentImage >= galleryImages.length) {
-    currentImage = 0;
-  }
+  setTimeout(() => {
+    currentImage += direction;
 
-  document.getElementById("galleryImage").src = galleryImages[currentImage];
+    if (currentImage < 0) {
+      currentImage = galleryImages.length - 1;
+    }
+
+    if (currentImage >= galleryImages.length) {
+      currentImage = 0;
+    }
+
+    image.src = galleryImages[currentImage];
+
+    // Wait for new image to load before fading back in
+    image.onload = () => {
+      image.classList.remove("fade");
+    };
+
+  }, 500);
 }
 
 (function() {
