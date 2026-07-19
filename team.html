@@ -1,329 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Team — College-to-Career Team</title>
 
   <style>
-:root {
-  --orange: #BF5700;
-  --orange-dark: #8C3D00;
-  --orange-light: #E8763A;
-  --charcoal: #2B2B2B;
-  --mid-gray: #5A5A5A;
-  --light-gray: #E8E4E0;
-  --cream: #FAF7F4;
-  --white: #FFFFFF;
-  --font-display: 'Georgia', 'Times New Roman', serif;
-  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --max-width: 1100px;
-  --radius: 6px;
-  --shadow: 0 2px 12px rgba(0,0,0,0.08);
-}
+    :root {
+      --orange: #BF5700;
+      --orange-dark: #8C3D00;
+      --orange-light: #E8763A;
+      --charcoal: #2B2B2B;
+      --mid-gray: #5A5A5A;
+      --light-gray: #E8E4E0;
+      --cream: #FAF7F4;
+      --white: #FFFFFF;
+      --font-display: Georgia, "Times New Roman", serif;
+      --font-body: Inter, "Helvetica Neue", Arial, sans-serif;
+      --max-width: 1100px;
+      --radius: 6px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body {
-  font-family: var(--font-body);
-  color: var(--charcoal);
-  background: var(--cream);
-  line-height: 1.7;
-  font-size: 16px;
-}
+    html,
+    body {
+      min-height: 100%;
+    }
 
-a {
-  color: var(--orange);
-  text-decoration: none;
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      background: var(--cream);
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
-a:hover { text-decoration: underline; }
+    a {
+      color: var(--orange);
+      text-decoration: none;
+    }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+    a:hover {
+      text-decoration: underline;
+    }
 
-#site-header {
-  background: var(--charcoal);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-}
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-.header-inner {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-}
+    #site-header {
+      width: 100%;
+      background: var(--charcoal);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
 
-.site-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--white);
-  font-weight: 700;
-  white-space: nowrap;
-  text-decoration: none;
-}
+    .header-inner {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 4px;
-}
+    .site-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--white);
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none;
+    }
 
-nav a {
-  color: #ccc;
-  font-size: 0.88rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: var(--radius);
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 4px;
+    }
 
-nav a:hover,
-nav a.active {
-  color: var(--white);
-  background: var(--orange);
-  text-decoration: none;
-}
+    nav a {
+      color: #ccc;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: var(--radius);
+    }
 
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 5px;
-  padding: 4px;
-}
+    nav a:hover,
+    nav a.active {
+      color: var(--white);
+      background: var(--orange);
+      text-decoration: none;
+    }
 
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: #ccc;
-  border-radius: 2px;
-}
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
 
-.page-hero {
-  background: linear-gradient(135deg, var(--orange-dark), var(--orange), var(--orange-light));
-  padding: 64px 24px 56px;
-  text-align: center;
-}
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #ccc;
+      border-radius: 2px;
+    }
 
-.page-hero h1 {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
-  color: var(--white);
-  margin-bottom: 12px;
-}
+    main {
+      flex: 1;
+      width: 100%;
+      background: var(--white);
+    }
 
-.page-hero p {
-  color: rgba(255,255,255,0.88);
-  font-size: 1.05rem;
-  max-width: 620px;
-  margin: 0 auto;
-}
+    .page-hero {
+      background: linear-gradient(
+        135deg,
+        var(--orange-dark),
+        var(--orange),
+        var(--orange-light)
+      );
+      padding: 64px 24px 56px;
+      text-align: center;
+    }
 
-.section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 56px 24px;
-}
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 12px;
+    }
 
-.section-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--charcoal);
-  margin: 40px 0 24px;
-}
+    .page-hero p {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto;
+    }
 
-.section-title::after {
-  content: '';
-  display: block;
-  width: 48px;
-  height: 3px;
-  background: var(--orange);
-  margin-top: 8px;
-  border-radius: 2px;
-}
+    .section {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 56px 24px 72px;
+    }
 
-.group-label {
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--mid-gray);
-  border-bottom: 1px solid var(--light-gray);
-  padding-bottom: 8px;
-  margin-bottom: 20px;
-}
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--charcoal);
+      margin: 40px 0 24px;
+    }
 
-.people-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: var(--orange);
+      margin-top: 8px;
+      border-radius: 2px;
+    }
 
-.person-row {
-  display: flex;
-  align-items: flex-start;
-  gap: 36px;
-  margin-bottom: 48px;
-}
+    .group-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mid-gray);
+      border-bottom: 1px solid var(--light-gray);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
 
-.person-photo {
-  width: 280px;
-  height: 280px;
-  min-width: 280px;
-  min-height: 280px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 8px;
-  border: 3px solid #E8E4E0;
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
-}
+    .people-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
 
-.carly-photo {
-  object-position: center 20%;
-}
+    .person-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 36px;
+      margin-bottom: 48px;
+    }
 
-/* Jordan Conwell photo */
-.jordan-photo {
-  object-position: center 12%;
-}
+    .person-photo {
+      width: 280px;
+      height: 280px;
+      min-width: 280px;
+      min-height: 280px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 8px;
+      border: 3px solid var(--light-gray);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
 
-.person-info {
-  flex: 1;
-  max-width: 720px;
-}
+    .carly-photo {
+      object-position: center 20%;
+    }
 
-.person-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 4px;
-  color: var(--charcoal);
-}
+    .jordan-photo {
+      object-position: center 12%;
+    }
 
-.person-role {
-  color: var(--orange);
-  font-weight: 600;
-  margin-bottom: 10px;
-}
+    .person-info {
+      flex: 1;
+      max-width: 720px;
+    }
 
-.person-info p {
-  color: var(--mid-gray);
-  font-size: 1rem;
-}
+    .person-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+      color: var(--charcoal);
+    }
 
-#site-footer {
-  background: var(--charcoal);
-  color: #aaa;
-  text-align: center;
-  padding: 28px 24px;
-  font-size: 0.83rem;
-  margin-top: 48px;
-}
+    .person-role {
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
 
-@media (max-width: 768px) {
-  .nav-toggle { display: flex; }
+    .person-info p {
+      color: var(--mid-gray);
+      font-size: 1rem;
+    }
 
-  nav {
-    display: none;
-    width: 100%;
-  }
+    .alumni-list {
+      margin-top: 4px;
+      padding-bottom: 12px;
+    }
 
-  nav.open {
-    display: block;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    background: var(--charcoal);
-    padding: 12px 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
+    .alumni-list p {
+      color: #777;
+      font-size: 0.9rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
 
-  nav ul {
-    flex-direction: column;
-    gap: 2px;
-  }
+    #site-footer {
+      width: 100%;
+      margin-top: auto;
+      background: var(--charcoal);
+      color: #aaa;
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 0.83rem;
+    }
 
-  nav a { display: block; }
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
 
-  .header-inner {
-    flex-wrap: wrap;
-    position: relative;
-  }
+      nav {
+        display: none;
+        width: 100%;
+      }
 
-  .person-row {
-    flex-direction: column;
-    gap: 18px;
-  }
+      nav.open {
+        display: block;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--charcoal);
+        padding: 12px 16px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
 
-  .person-photo {
-    width: 100%;
-    height: auto;
-    min-width: 0;
-    min-height: 0;
-    max-width: 320px;
-  }
-}
+      nav ul {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      nav a {
+        display: block;
+      }
+
+      .header-inner {
+        flex-wrap: wrap;
+        position: relative;
+      }
+
+      .person-row {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .person-photo {
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+        max-width: 320px;
+      }
+
+      .section {
+        padding: 42px 20px 56px;
+      }
+    }
   </style>
 </head>
 
 <body>
   <header id="site-header"></header>
 
-  <div class="page-hero">
-    <h1>Our Team</h1>
-    <p>Meet the people behind the College-to-Career Team.</p>
-  </div>
+  <main>
+    <section class="page-hero">
+      <h1>Our Team</h1>
+      <p>Meet the people behind the College-to-Career Team.</p>
+    </section>
 
-  <div style="background:#fff;">
-    <div class="section">
-
+    <section class="section">
       <div class="group-label">Faculty</div>
 
       <div class="people-list">
-
         <h2 class="section-title">Principal Investigator</h2>
 
-<div class="person-row">
-  <img src="images/jordan_conwell.jpg" alt="Jordan Conwell" class="person-photo jordan-photo">
+        <div class="person-row">
+          <img
+            src="images/jordan_conwell.jpg"
+            alt="Jordan Conwell"
+            class="person-photo jordan-photo"
+          >
 
-    <div class="person-info">
-        <h3>Jordan Conwell</h3>
-        <p class="person-role">Principal Investigator</p>
-        <p>Associate Professor, Department of Sociology, The University of Texas at Austin.</p>
-    </div>
-</div>
+          <div class="person-info">
+            <h3>Jordan Conwell</h3>
+            <p class="person-role">Principal Investigator</p>
+            <p>
+              Associate Professor, Department of Sociology, The University of
+              Texas at Austin.
+            </p>
+          </div>
+        </div>
 
         <h2 class="section-title">Postdoctoral Researcher</h2>
 
-   <div class="person-row">
-    <img src="images/jane_furey.jpg" alt="Jane Furey" class="person-photo">
+        <div class="person-row">
+          <img
+            src="images/jane_furey.jpg"
+            alt="Jane Furey"
+            class="person-photo"
+          >
 
-    <div class="person-info">
-        <h3>Jane Furey</h3>
-        <p class="person-role">Postdoctoral Researcher</p>
-    </div>
-</div>
+          <div class="person-info">
+            <h3>Jane Furey</h3>
+            <p class="person-role">Postdoctoral Researcher</p>
+          </div>
+        </div>
 
         <h2 class="section-title">PhD Students</h2>
 
         <div class="person-row">
-          <img src="images/placeholder.jpg" alt="Cameron Rua-Smith" class="person-photo">
+          <img
+            src="images/placeholder.jpg"
+            alt="Cameron Rua-Smith"
+            class="person-photo"
+          >
+
           <div class="person-info">
             <h3>Cameron Rua-Smith</h3>
             <p class="person-role">PhD Student</p>
@@ -333,95 +393,163 @@ nav a.active {
         <h2 class="section-title">Undergraduate Researchers</h2>
 
         <div class="person-row">
-          <img src="images/carly-may.png" alt="Carly May" class="person-photo carly-photo">
+          <img
+            src="images/carly-may.png"
+            alt="Carly May"
+            class="person-photo carly-photo"
+          >
+
           <div class="person-info">
             <h3>Carly May</h3>
             <p class="person-role">Undergraduate Research Assistant</p>
+
             <p>
-              Carly recently graduated from The University of Texas at Austin with a Bachelor's degree in Sociology and a minor in Educational Psychology. Entering her third year on the College-to-Career research team, she now serves as the Undergraduate Team Lead. After beginning college in 2014 and returning in 2024 to pursue sociology, she brings a renewed commitment to advancing equity in education and strengthening family support systems. This fall, she will begin a Master's program in Human Development, Culture, and Learning Sciences. Her research interests focus on education policy, parent involvement, and reducing systemic inequalities in access to educational resources.
+              Carly recently graduated from The University of Texas at Austin
+              with a Bachelor's degree in Sociology and a minor in Educational
+              Psychology. Entering her third year on the College-to-Career
+              research team, she now serves as the Undergraduate Team Lead.
+              After beginning college in 2014 and returning in 2024 to pursue
+              sociology, she brings a renewed commitment to advancing equity in
+              education and strengthening family support systems. This fall,
+              she will begin a Master's program in Human Development, Culture,
+              and Learning Sciences. Her research interests focus on education
+              policy, parent involvement, and reducing systemic inequalities
+              in access to educational resources.
             </p>
           </div>
         </div>
 
-<div class="person-row">
+        <div class="person-row">
+          <img
+            src="images/katy-doncer.jpg"
+            alt="Katy Doncer"
+            class="person-photo"
+          >
 
-  <img src="images/katy-doncer.jpg"
-       alt="Katy Doncer"
-       class="person-photo">
+          <div class="person-info">
+            <h3>Katy Doncer</h3>
+            <p class="person-role">Undergraduate Research Assistant</p>
 
-  <div class="person-info">
-    <h3>Katy Doncer</h3>
-    <p class="person-role">Undergraduate Research Assistant</p>
-
-    <p>
-      Katy received her Bachelor's degree in Psychology from The University of Texas at Austin in 2026. She is currently pursuing a Ph.D. in Sociology at The Ohio State University, where she continues to build on her interests in research and public policy. Her long-term goal is to become a professor and conduct research that informs policy, promotes educational opportunity, and improves the lives of individuals and communities.
-    </p>
-
-  </div>
-
-</div>
+            <p>
+              Katy received her Bachelor's degree in Psychology from The
+              University of Texas at Austin in 2026. She is currently pursuing
+              a Ph.D. in Sociology at The Ohio State University, where she
+              continues to build on her interests in research and public
+              policy. Her long-term goal is to become a professor and conduct
+              research that informs policy, promotes educational opportunity,
+              and improves the lives of individuals and communities.
+            </p>
+          </div>
+        </div>
 
         <div class="person-row">
-          <img src="images/michael-dinh.jpg" alt="Michael Dinh" class="person-photo">
+          <img
+            src="images/michael-dinh.jpg"
+            alt="Michael Dinh"
+            class="person-photo"
+          >
+
           <div class="person-info">
             <h3>Michael Dinh</h3>
             <p class="person-role">Undergraduate Research Assistant</p>
+
             <p>
-             Michael is a senior at The University of Texas at Austin pursuing a Bachelor of Science in Psychology and is expected to graduate in Fall 2026. As an undergraduate researcher with the College-to-Career Team, he contributes to website development, survey design, and student-centered research aimed at improving career readiness resources. After graduation, he hopes to attend dental school and pursue a career dedicated to providing compassionate, patient-centered care.
+              Michael is a senior at The University of Texas at Austin pursuing
+              a Bachelor of Science in Psychology and is expected to graduate
+              in Fall 2026. As an undergraduate researcher with the
+              College-to-Career Team, he contributes to website development,
+              survey design, and student-centered research aimed at improving
+              career readiness resources. After graduation, he hopes to attend
+              dental school and pursue a career dedicated to providing
+              compassionate, patient-centered care.
             </p>
           </div>
         </div>
 
         <div class="person-row">
-          <img src="images/placeholder.jpg" alt="Grant Andrew Lindberg" class="person-photo">
+          <img
+            src="images/placeholder.jpg"
+            alt="Grant Andrew Lindberg"
+            class="person-photo"
+          >
+
           <div class="person-info">
             <h3>Grant Andrew Lindberg</h3>
             <p class="person-role">Undergraduate Research Assistant</p>
           </div>
         </div>
 
-<h2 class="section-title">Alumni</h2>
+        <h2 class="section-title">Alumni</h2>
 
-<div class="alumni-list">
-  <p>Brynn Boise-Fults</p>
-  <p>Alison Chavez Caldera</p>
-  <p>Aria Welch</p>
-</div>
+        <div class="alumni-list">
+          <p>Brynn Boise-Fults</p>
+          <p>Alison Chavez Caldera</p>
+          <p>Aria Welch</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer id="site-footer"></footer>
 
   <script>
-(function() {
-  const pages = [
-    { label: 'Home', href: 'index.html' },
-    { label: 'Research', href: 'research.html' },
-    { label: 'Team', href: 'team.html' },
-    { label: 'Publications', href: 'publications.html' },
-    { label: 'Join & Participate', href: 'join.html' }
-  ];
+    (function () {
+      const pages = [
+        { label: "Home", href: "index.html" },
+        { label: "Research", href: "research.html" },
+        { label: "Team", href: "team.html" },
+        { label: "Publications", href: "publications.html" },
+        { label: "Join & Participate", href: "join.html" }
+      ];
 
-  const current = location.pathname.split('/').pop() || 'index.html';
+      const current =
+        location.pathname.split("/").pop() || "index.html";
 
-  const nav = pages.map(p => {
-    const active = p.href === current ? ' class="active"' : '';
-    return `<li><a href="${p.href}"${active}>${p.label}</a></li>`;
-  }).join('');
+      const nav = pages
+        .map((page) => {
+          const active =
+            page.href === current ? ' class="active"' : "";
 
-  document.getElementById('site-header').innerHTML = `
-    <div class="header-inner">
-      <a class="site-title" href="index.html">College-to-Career Team</a>
-      <button class="nav-toggle" onclick="document.getElementById('site-nav').classList.toggle('open')">
-        <span></span><span></span><span></span>
-      </button>
-      <nav id="site-nav">
-        <ul>${nav}</ul>
-      </nav>
-    </div>
-  `;
+          return `
+            <li>
+              <a href="${page.href}"${active}>
+                ${page.label}
+              </a>
+            </li>
+          `;
+        })
+        .join("");
 
-  document.getElementById('site-footer').innerHTML =
-    '<p>College-to-Career Team &copy; ' + new Date().getFullYear() + '</p>';
-})();
+      document.getElementById("site-header").innerHTML = `
+        <div class="header-inner">
+          <a class="site-title" href="index.html">
+            College-to-Career Team
+          </a>
+
+          <button
+            class="nav-toggle"
+            type="button"
+            aria-label="Open navigation menu"
+            onclick="document.getElementById('site-nav').classList.toggle('open')"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <nav id="site-nav">
+            <ul>${nav}</ul>
+          </nav>
+        </div>
+      `;
+
+      document.getElementById("site-footer").innerHTML = `
+        <p>
+          College-to-Career Team &copy;
+          ${new Date().getFullYear()}
+        </p>
+      `;
+    })();
   </script>
 </body>
 </html>
